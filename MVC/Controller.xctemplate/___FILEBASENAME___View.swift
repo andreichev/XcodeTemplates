@@ -14,6 +14,7 @@ final class ___VARIABLE_sceneName___View: UIView {
 
     override init(frame: CGRect = UIScreen.main.bounds) {
         super.init(frame: frame)
+        setupStyle()
         addSubviews()
         makeConstraints()
     }
