@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Entity Name:</string>
+			<key>Identifier</key>
+			<string>entityName</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Description</key>
+			<string>The name of the edtity in data source to create</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>Entity</string>
+	<key>Summary</key>
+	<string>Entity</string>
+	<key>SortOrder</key>
+	<string>0</string>
+	<key>DefaultCompletionName</key>
+	<string>Item</string>
+</dict>
+</plist>
