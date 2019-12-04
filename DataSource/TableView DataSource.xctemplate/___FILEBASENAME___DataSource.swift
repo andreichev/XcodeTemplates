@@ -25,7 +25,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 
 // MARK: - UITableViewDataSource
 
-extension OffersDataSource: UITableViewDataSource {
+extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return data?.count ?? 0
     }
