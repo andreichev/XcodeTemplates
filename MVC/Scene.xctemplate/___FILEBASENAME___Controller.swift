@@ -31,7 +31,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
     }
 
     private func setupAppearance() {
-        title = Text.___VARIABLE_sceneName___.title
+        // title = Text.___VARIABLE_sceneName___.title
     }
 
     // MARK: - Action handlers
