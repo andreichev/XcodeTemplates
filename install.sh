@@ -1,15 +1,10 @@
 #!/bin/bash
 
 XCODE_USER_TEMPLATES_DIR=$HOME/Library/Developer/Xcode/Templates/File\ Templates
-CS_TEMPLATES_DIR=Clean\ Swift
 MVC_TEMPLATES_DIR=MVC
 DS_TEMPLATES_DIR=DataSource
 
 mkdir -p "$XCODE_USER_TEMPLATES_DIR"
-
-echo "Installing Clean Swift templates"
-rm -fR "$XCODE_USER_TEMPLATES_DIR/$CS_TEMPLATES_DIR"
-cp -R "$CS_TEMPLATES_DIR" "$XCODE_USER_TEMPLATES_DIR"
 
 echo "Installing MVC templates"
 rm -fR "$XCODE_USER_TEMPLATES_DIR/$MVC_TEMPLATES_DIR"

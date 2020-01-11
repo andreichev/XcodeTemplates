@@ -1,10 +1,10 @@
 # MD Xcode File Templates
 
-- Apple MVC with view in other file
-- Clean Swift templates copy (<a href="https://drive.google.com/file/d/1BIj7j_4UZikdwVtIkoBZEgeijrWTNMP4/view" target="_blank">original</a>)
+Architecture scheme:
+![Architecture](Architecture.png)
 
 ## Installation
-- You have to copy templates files from this repository to your Xcode templates dir
+- You have to copy templates files from this repository to your Xcode templates dir by doing next steps.
 ### Clone
 - Clone this repo to your local machine
 ```shell
@@ -20,10 +20,12 @@ $ chmod u+x install.sh
 ```shell
 $ ./install.sh
 ```
-- to remove templates, do the same steps with remove.sh file
+- to remove templates, do the same with remove.sh file
 
 ## Resources:
 - http://jeanetienne.net/2017/09/10/advanced-xcode-template.html
+- https://github.com/quickbirdstudios/XCoordinator
+- https://github.com/Moya/Moya
 
 ## TODO: - Create template for project
 - https://www.hackingwithswift.com/articles/158/how-to-create-a-custom-xcode-template-for-coordinators
