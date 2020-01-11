@@ -1,26 +1,29 @@
 //___FILEHEADER___
 
-import MDFoundation
-import UIComponents
+import SharedComponents
 
 final class ___VARIABLE_sceneName___View: UIView {
-    struct Appearance: Grid {}
+    
+    struct Appearance {}
 
     // MARK: - Properties
-
-    let appearance = Appearance()
 
     // MARK: - Init
 
     override init(frame: CGRect = UIScreen.main.bounds) {
         super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         setupStyle()
         addSubviews()
         makeConstraints()
-    }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupStyle() {}
@@ -29,8 +32,9 @@ final class ___VARIABLE_sceneName___View: UIView {
 
     private func makeConstraints() {}
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
 
-    // TODO: - Показать ошибку загрузки
-    public func showErrorLoadingContent() {}
+    func displaySomething(viewModel: ___VARIABLE_sceneName___.ViewModel) {
+        //nameTextField.text = viewModel.name
+    }
 }
