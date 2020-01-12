@@ -16,13 +16,22 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
     public var router: StrongRouter<Routes>?
     lazy var interactor = ___VARIABLE_sceneName___Interactor(controller: self)
 
-    lazy var customView = XibInitializer.loadFromXib(type: ___VARIABLE_sceneName___View.self)
+    lazy var customView = ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
+
+    // MARK: - Init
+
+    public init() {
+        super.init(
+            nibName: Utils.getClassName(___VARIABLE_sceneName___View.self),
+            bundle: Bundle(for: ___VARIABLE_sceneName___View.self)
+        )
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life cycle
-
-    public override func loadView() {
-        view = customView
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +50,16 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
     func requestStarted() {
-        customView.startShowingActivityIndicator()
+        customView?.startShowingActivityIndicator()
     }
 
     func displaySomething(viewModel: ___VARIABLE_sceneName___.ViewModel) {
-        customView.stopShowingActivityIndicator()
-        customView.display(viewModel: viewModel)
+        customView?.stopShowingActivityIndicator()
+        customView?.display(viewModel: viewModel)
     }
 
     func presentError(message: String) {
-        customView.stopShowingActivityIndicator()
+        customView?.stopShowingActivityIndicator()
         guard message != .empty else { return }
         let alert = AlertsFactory.error(
             title: Text.Alert.error,
