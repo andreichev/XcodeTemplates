@@ -4,13 +4,13 @@ import MDFoundation
 import SharedComponents
 import XCoordinator
 
-protocol ___VARIABLE_sceneName___ControllerLogic {
+protocol ___VARIABLE_sceneName___ControllerLogic: class {
     func requestStarted()
     func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
     func presentError(message: String)
 }
 
-public class ___VARIABLE_sceneName___Controller: UIViewController {
+public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
     public var router: StrongRouter<Routes>?
@@ -53,7 +53,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
         customView?.startShowingActivityIndicator()
     }
 
-    func displaySomething(viewModel: ___VARIABLE_sceneName___.ViewModel) {
+    func didFinishRequest(viewModel:  ___VARIABLE_sceneName___.ViewModel) {
         customView?.stopShowingActivityIndicator()
         customView?.display(viewModel: viewModel)
     }

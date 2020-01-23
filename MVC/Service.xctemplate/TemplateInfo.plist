@@ -76,12 +76,12 @@
 	<key>Kind</key>
 	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
 	<key>Description</key>
-	<string>Apple MVC Controller File</string>
+	<string>Service </string>
 	<key>Summary</key>
-	<string>Apple MVC Controller File</string>
+	<string>Service</string>
 	<key>SortOrder</key>
 	<string>0</string>
 	<key>DefaultCompletionName</key>
-	<string>MyScene</string>
+	<string>MyService</string>
 </dict>
 </plist>
