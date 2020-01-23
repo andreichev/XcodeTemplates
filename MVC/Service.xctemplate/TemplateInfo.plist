@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>New Service Name:</string>
+			<key>Identifier</key>
+			<string>sceneName</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Description</key>
+			<string>The name of the service to create</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>static</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Service name:</string>
+			<key>Identifier</key>
+			<string>serviceName</string>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___Service</string>
+			<key>Description</key>
+			<string>The service name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>static</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Service factory:</string>
+			<key>Identifier</key>
+			<string>serviceFactory</string>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___ServiceFactory</string>
+			<key>Description</key>
+			<string>The factory name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>static</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Service Mock Name:</string>
+			<key>Identifier</key>
+			<string>mockName</string>
+			<key>Description</key>
+			<string>The mock name</string>
+			<key>Default</key>
+			<string>___VARIABLE_sceneName:identifier___ServiceMock</string>
+		</dict>
+	</array>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>Apple MVC Controller File</string>
+	<key>Summary</key>
+	<string>Apple MVC Controller File</string>
+	<key>SortOrder</key>
+	<string>0</string>
+	<key>DefaultCompletionName</key>
+	<string>MyScene</string>
+</dict>
+</plist>

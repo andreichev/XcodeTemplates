@@ -3,23 +3,26 @@
 import UIKit
 
 public final class ___VARIABLE_cellName___: UITableViewCell {
-    struct Appearance: Grid {}
+    struct Appearance {}
 
     // MARK: - Properties
-
-    private let appearance = Appearance()
 
     // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    func commonInit() {
         setupStyle()
         addSubviews()
         makeConstraints()
-    }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Private methods

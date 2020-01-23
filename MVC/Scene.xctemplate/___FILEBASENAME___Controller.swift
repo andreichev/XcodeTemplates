@@ -14,7 +14,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
     // MARK: - Properties
 
     public var router: StrongRouter<Routes>?
-    lazy var interactor = ___VARIABLE_sceneName___Interactor(controller: self)
+    var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View()
 
@@ -26,8 +26,14 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupAppearance()
         addActionHandlers()
+    }
+
+    private func setup() {
+        interactor = ___VARIABLE_sceneName___Interactor()
+        interactor?.controller = self
     }
 
     private func setupAppearance() {

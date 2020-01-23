@@ -14,7 +14,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
     // MARK: - Properties
 
     public var router: StrongRouter<Routes>?
-    lazy var interactor = ___VARIABLE_sceneName___Interactor(controller: self)
+    var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
 
@@ -25,18 +25,18 @@ public class ___VARIABLE_sceneName___Controller: UIViewController {
             nibName: Utils.getClassName(___VARIABLE_sceneName___View.self),
             bundle: Bundle(for: ___VARIABLE_sceneName___View.self)
         )
+        setup()
+        setupAppearance()
+        addActionHandlers()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life cycle
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        setupAppearance()
-        addActionHandlers()
+    private func setup() {
+        interactor = ___VARIABLE_sceneName___Interactor()
+        interactor?.controller = self
     }
 
     private func setupAppearance() {

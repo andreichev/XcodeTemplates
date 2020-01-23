@@ -12,9 +12,9 @@ final class ___VARIABLE_sceneName___View: UIView {
         let tableView = UITableView(frame: UIScreen.main.bounds)
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 100
         tableView.showsVerticalScrollIndicator = false
-        tableView.contentInset = tableView.contentInset.with(bottom: 80)
+        tableView.contentInset = tableView.contentInset.with(bottom: 100)
         return tableView
     }()
 
@@ -40,7 +40,7 @@ final class ___VARIABLE_sceneName___View: UIView {
     }
 
     private func setupStyle() {
-        tableView.backgroundColor = Assets.background2.color
+        tableView.backgroundColor = Assets.background1.color
     }
 
     private func addSubviews() {
@@ -65,6 +65,6 @@ final class ___VARIABLE_sceneName___View: UIView {
     }
 
     public func showEmptyPage() {
-        dataSource?.update___VARIABLE_entityName___(___VARIABLE_entityName___(id: "1"), animated: true)
+        dataSource?.update___VARIABLE_entityName___(___VARIABLE_entityName___(), animated: true)
     }
 }

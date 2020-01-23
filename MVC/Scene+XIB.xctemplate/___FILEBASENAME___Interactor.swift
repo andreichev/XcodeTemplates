@@ -7,12 +7,8 @@ protocol ___VARIABLE_sceneName___BusinessLogic {
 }
 
 class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
-    var controller: ___VARIABLE_sceneName___ControllerLogic
+    weak var controller: ___VARIABLE_sceneName___ControllerLogic?
     let service: SomeServiceProtocol = SomeServiceFactory.someService
-
-    init(controller: ___VARIABLE_sceneName___ControllerLogic) {
-        self.controller = controller
-    }
 
     func loadSomething(request: ___VARIABLE_sceneName___.Request) {
         controller?.requestStarted()

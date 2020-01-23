@@ -16,7 +16,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     public var router: StrongRouter<___VARIABLE_entityName___Routes>?
 
     lazy var customView = ___VARIABLE_sceneName___View()
-    lazy var interactor = ___VARIABLE_sceneName___Interactor(controller: self)
+    var interactor: ___VARIABLE_sceneName___Interactor?
 
     // MARK: - Life cycle
 
@@ -28,6 +28,11 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
         super.viewDidLoad()
         setupAppearance()
         load___VARIABLE_entityName___()
+    }
+
+    private func setup() {
+        interactor = ___VARIABLE_sceneName___Interactor()
+        interactor?.controller = self
     }
 
     private func setupAppearance() {
