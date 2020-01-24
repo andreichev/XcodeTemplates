@@ -42,7 +42,7 @@
 			<key>Description</key>
 			<string>Data Source</string>
 			<key>Default</key>
-			<string>___VARIABLE_entityName:identifier___DataSource</string>
+			<string>___VARIABLE_entityName:identifier___sDataSource</string>
 		</dict>
 	</array>
 	<key>Kind</key>
