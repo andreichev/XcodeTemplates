@@ -3,9 +3,14 @@
 import SharedBusinessLogic
 
 final class ___VARIABLE_entityName___sDataSource: NSObject {
+
+    // MARK: - Properties
+
     private var data: [___VARIABLE_entityName___]?
     private var tableView: UITableView
     var openItemAction: (() -> Void)?
+
+    // MARK: - Init
 
     init(data: [___VARIABLE_entityName___]? = nil, tableView: UITableView) {
         self.tableView = tableView
@@ -16,6 +21,8 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
         tableView.dataSource = self
         tableView.delegate = self
     }
+
+    // MARK: - Internal methods
 
     func update___VARIABLE_entityName___s(_ data: [___VARIABLE_entityName___]) {
         self.data = data

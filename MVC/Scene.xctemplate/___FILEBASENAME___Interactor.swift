@@ -22,7 +22,7 @@ class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic 
                 // TODO: fill viewModel
                 self.controller?.didFinishRequest(viewModel: viewModel)
             } else {
-                self.controller?.presentError(message: Text.Errors.RequestError)
+                self.controller?.presentError(message: Text.Errors.requestError)
             }
         }
     }
