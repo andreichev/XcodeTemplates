@@ -2,7 +2,7 @@
 
 import SharedComponents
 
-protocol ___VARIABLE_sceneName___BusinessLogic {
+protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
     func load___VARIABLE_entityName___()
 }
 

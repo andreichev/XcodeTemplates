@@ -4,7 +4,7 @@ import MDFoundation
 import SharedComponents
 import XCoordinator
 
-protocol ___VARIABLE_sceneName___ControllerLogic: class {
+protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func requestStarted()
     func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
     func presentError(message: String)
