@@ -3,7 +3,7 @@
 import MDFoundation
 import SharedBusinessLogic
 import SharedComponents
-import XCoordinator
+import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func present___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___)
@@ -17,6 +17,8 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     lazy var customView = ___VARIABLE_sceneName___View()
     var interactor: ___VARIABLE_sceneName___Interactor?
+
+    let generator = UINotificationFeedbackGenerator()
 
     // MARK: - Life cycle
 
@@ -38,6 +40,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     private func setupAppearance() {
         extendedLayoutIncludesOpaqueBars = true
         title = Text.___VARIABLE_entityName___.title
+        customView.tableBuilder?.delegate = self
     }
 
     // MARK: - Network requests
@@ -53,13 +56,13 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     }
 
     func presentError(message: String) {
-        customView.showEmptyPage()
-        guard message != .empty else { return }
-        let alert = AlertsFactory.error(
-            title: Text.Alert.error,
-            message: message,
-            cancelText: Text.Alert.cancel
-        )
-        present(alert, animated: true, completion: nil)
+        generator.notificationOccurred(.error)
+        customView.showError(message: message)
     }
+}
+
+// MARK: - ___VARIABLE_sceneName___CellSetupDelegate
+
+extension ___VARIABLE_sceneName___ControllerLogic: ___VARIABLE_sceneName___CellSetupDelegate {
+    public func reloadAction() {}
 }

@@ -14,10 +14,22 @@ public final class ___VARIABLE_sceneName___TableBuilder {
     private var dataStorage: GenericTableViewDataStorage = GenericTableViewDataStorage()
     private var tableView: UITableView
     private var cellsSetup: ___VARIABLE_sceneName___CellSetup
+    var entity: ___VARIABLE_entityName___?
+
+        // Action handlers properties
+    var delegate: ___VARIABLE_sceneName___CellSetupDelegate? {
+        set {
+            cellsSetup.delegate = newValue
+        }
+        get {
+            return cellsSetup.delegate
+        }
+    }
 
     // MARK: - Init
 
     public init(tableView: UITableView, entity: ___VARIABLE_entityName___?) {
+        self.entity = entity
         self.tableView = tableView
         self.genericDataSource = GenericTableViewDataSource(with: dataStorage)
         self.genericTableViewDelegate = GenericTableViewDelegate(with: dataStorage)
@@ -27,7 +39,12 @@ public final class ___VARIABLE_sceneName___TableBuilder {
         buildMinimalTableStructure()
     }
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
+
+    func showError() {
+        buildErrorCellTableStructure()
+        reloadData(animated: false)
+    }
 
     public func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___, animated: Bool) {
         cellsSetup.update___VARIABLE_entityName___(entity)
@@ -47,14 +64,21 @@ public final class ___VARIABLE_sceneName___TableBuilder {
 
     // MARK: - Private methods
 
-    func buildMinimalTableStructure() {
+    private func buildErrorCellTableStructure() {
+        let rowsSequence: [Row] = [
+            Row(cellsSetup.errorCell(_:for:), fromNib: true),
+        ]
+        setRowsSequenceToDataStorage(rowsSequence: rowsSequence)
+    }
+
+    private func buildMinimalTableStructure() {
         let rowsSequence: [Row] = [
             Row(LoadingCell.loadingCell(_:for:)),
         ]
         setRowsSequenceToDataStorage(rowsSequence: rowsSequence)
     }
 
-    func buildFullTableStructure() {
+    private func buildFullTableStructure() {
         let rowsSequence: [Row] = [
             Row(cellsSetup.someCell(_:for:)),
             Row(cellsSetup.otherCell(_:for:))
@@ -62,7 +86,7 @@ public final class ___VARIABLE_sceneName___TableBuilder {
         setRowsSequenceToDataStorage(rowsSequence: rowsSequence)
     }
 
-    func setRowsSequenceToDataStorage(rowsSequence: [GenericTableViewRowModel]) {
+    private func setRowsSequenceToDataStorage(rowsSequence: [GenericTableViewRowModel]) {
         let section = GenericTableViewSectionModel(with: rowsSequence)
         dataStorage.update(withOneSection: section)
         dataStorage.registerFor(tableView)

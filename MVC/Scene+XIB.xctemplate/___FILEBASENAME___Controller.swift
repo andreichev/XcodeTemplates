@@ -2,7 +2,7 @@
 
 import MDFoundation
 import SharedComponents
-import XCoordinator
+import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func requestStarted()

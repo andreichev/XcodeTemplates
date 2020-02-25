@@ -12,13 +12,14 @@ final class ___VARIABLE_sceneName___View: UIView {
         let tableView = UITableView(frame: UIScreen.main.bounds)
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
-        tableView.contentInset = tableView.contentInset.with(bottom: 100)
+        tableView.contentInset = tableView.contentInset.with(bottom: 50)
         return tableView
     }()
 
-    public var dataSource: ___VARIABLE_sceneName___TableBuilder?
+    public var tableBuilder: ___VARIABLE_sceneName___TableBuilder?
 
     // MARK: - Init
 
@@ -52,7 +53,7 @@ final class ___VARIABLE_sceneName___View: UIView {
     }
 
     private func initData(with entity: ___VARIABLE_entityName___? = nil) {
-        dataSource = ___VARIABLE_sceneName___TableBuilder(
+        tableBuilder = ___VARIABLE_sceneName___TableBuilder(
             tableView: tableView,
             entity: entity
         )
@@ -61,10 +62,11 @@ final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Public methods
 
     public func updateAppearance(with entity: ___VARIABLE_entityName___, animated: Bool = true) {
-        dataSource?.update___VARIABLE_entityName___(entity, animated: animated)
+        tableBuilder?.update___VARIABLE_entityName___(entity, animated: animated)
     }
 
-    public func showEmptyPage() {
-        dataSource?.update___VARIABLE_entityName___(___VARIABLE_entityName___(), animated: true)
+    func showError(message: String) {
+        tableBuilder?.showError()
+        tableBuilder?.cellsSetup.messageAboutError = message
     }
 }

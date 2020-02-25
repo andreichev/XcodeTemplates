@@ -3,8 +3,14 @@
 import SharedBusinessLogic
 import SharedComponents
 
+public protocol ___VARIABLE_sceneName___CellSetupDelegate: AnyObject {
+    func reloadAction()
+}
+
 public final class ___VARIABLE_sceneName___CellSetup {
     private var entity: ___VARIABLE_entityName___?
+    public var messageAboutError: String = .empty
+    public weak var delegate: ___VARIABLE_sceneName___CellSetupDelegate?
 
     private var tableView: UITableView
 
@@ -33,3 +39,12 @@ public final class ___VARIABLE_sceneName___CellSetup {
         cell.textLabel?.text = "Other cell"
     }
 }
+
+// MARK: - Action handlers
+
+extension ___VARIABLE_sceneName___CellSetup: ErrorCellDelegate {
+    public func reloadData() {
+        delegate?.reloadAction()
+    }
+}
+

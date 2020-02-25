@@ -1,6 +1,6 @@
 //___FILEHEADER___
 
-import XCoordinator
+import MDCoordinator
 import MDFoundation
 import SharedComponents
 
