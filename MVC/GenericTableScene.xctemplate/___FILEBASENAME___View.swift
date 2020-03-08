@@ -66,7 +66,7 @@ final class ___VARIABLE_sceneName___View: UIView {
     }
 
     func showError(message: String) {
+        tableBuilder?.messageAboutError = message
         tableBuilder?.showError()
-        tableBuilder?.cellsSetup.messageAboutError = message
     }
 }

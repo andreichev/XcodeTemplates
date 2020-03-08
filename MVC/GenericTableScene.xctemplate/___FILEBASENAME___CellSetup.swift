@@ -38,6 +38,11 @@ public final class ___VARIABLE_sceneName___CellSetup {
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = "Other cell"
     }
+
+    func errorCell(_ cell: ErrorCell, for indexPath: IndexPath) {
+        cell.configure(with: messageAboutError)
+        cell.delegate = self
+    }
 }
 
 // MARK: - Action handlers

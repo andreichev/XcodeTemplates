@@ -12,7 +12,7 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
 public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: StrongRouter<Routes>?
+    public var router: Router<Routes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View()

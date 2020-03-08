@@ -26,6 +26,15 @@ public final class ___VARIABLE_sceneName___TableBuilder {
         }
     }
 
+    var messageAboutError: String {
+        set {
+            cellsSetup.messageAboutError = newValue
+        }
+        get {
+            return cellsSetup.messageAboutError
+        }
+    }
+    
     // MARK: - Init
 
     public init(tableView: UITableView, entity: ___VARIABLE_entityName___?) {

@@ -13,7 +13,7 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
 public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: StrongRouter<___VARIABLE_entityName___Routes>?
+    public var router: Router<___VARIABLE_entityName___Routes>?
 
     lazy var customView = ___VARIABLE_sceneName___View()
     var interactor: ___VARIABLE_sceneName___Interactor?
@@ -63,6 +63,6 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
 // MARK: - ___VARIABLE_sceneName___CellSetupDelegate
 
-extension ___VARIABLE_sceneName___ControllerLogic: ___VARIABLE_sceneName___CellSetupDelegate {
+extension ___VARIABLE_sceneName___Controller: ___VARIABLE_sceneName___CellSetupDelegate {
     public func reloadAction() {}
 }
