@@ -2,29 +2,33 @@
 
 import SharedBusinessLogic
 
+protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {}
+
 final class ___VARIABLE_entityName___sDataSource: NSObject {
 
     // MARK: - Properties
 
-    private var data: [___VARIABLE_entityName___]?
+    private var data: [___VARIABLE_entityName___] = []
     private var tableView: UITableView
-    var openItemAction: (() -> Void)?
+    weak var delegate: ___VARIABLE_entityName___sDataSourceDelegate?
 
     // MARK: - Init
 
-    init(data: [___VARIABLE_entityName___]? = nil, tableView: UITableView) {
+    init(data: [___VARIABLE_entityName___] = [], tableView: UITableView) {
         self.tableView = tableView
         self.data = data
         super.init()
-        tableView.register(___VARIABLE_entityName___Cell.self,
-                           forCellReuseIdentifier: ___VARIABLE_entityName___Cell.identifier)
+        tableView.register(
+            ___VARIABLE_entityName___Cell.self,
+            forCellReuseIdentifier: ___VARIABLE_entityName___Cell.identifier
+        )
         tableView.dataSource = self
         tableView.delegate = self
     }
 
     // MARK: - Internal methods
 
-    func update___VARIABLE_entityName___s(_ data: [___VARIABLE_entityName___]) {
+    func updateData(_ data: [___VARIABLE_entityName___]) {
         self.data = data
         tableView.reloadData()
     }
@@ -34,20 +38,17 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 
 extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return data?.count ?? 0
+        return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
+        let cell = tableView.dequeueReusableCell(
             withIdentifier: ___VARIABLE_entityName___Cell.identifier,
             for: indexPath
-        ) as? ___VARIABLE_entityName___Cell else {
-            return ___VARIABLE_entityName___Cell()
-        }
-        if let item = data?[indexPath.row] {
-            cell.configure(with: item)
-        }
-        return cell
+        ) as? ___VARIABLE_entityName___Cell
+        let item = data[indexPath.row]
+        cell?.configure(with: item)
+        return cell ?? UITableViewCell()
     }
 }
 
@@ -56,6 +57,6 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
 extension ___VARIABLE_entityName___sDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        openItemAction?()
+        // openItemAction in delegate
     }
 }

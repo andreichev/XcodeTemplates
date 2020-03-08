@@ -11,7 +11,6 @@ class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic 
     let service: SomeServiceProtocol = SomeServiceFactory.someService
 
     func loadSomething(request: ___VARIABLE_sceneName___.Request) {
-        controller?.requestStarted()
         service.doRequest(request) { [weak self] response, error in
             guard let self = self else { return }
             if let error = error {

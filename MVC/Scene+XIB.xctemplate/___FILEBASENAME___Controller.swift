@@ -5,7 +5,6 @@ import SharedComponents
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
-    func requestStarted()
     func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
     func presentError(message: String)
 }
@@ -16,7 +15,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     public var router: StrongRouter<Routes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
-    lazy var customView = ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
+    lazy var customView: ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
 
     // MARK: - Init
 
@@ -48,10 +47,6 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     private func addActionHandlers() {}
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
-
-    func requestStarted() {
-        customView?.startShowingActivityIndicator()
-    }
 
     func didFinishRequest(viewModel:  ___VARIABLE_sceneName___.ViewModel) {
         customView?.stopShowingActivityIndicator()

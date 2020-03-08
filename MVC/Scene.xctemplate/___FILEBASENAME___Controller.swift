@@ -5,7 +5,6 @@ import MDFoundation
 import SharedComponents
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
-    func requestStarted()
     func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
     func presentError(message: String)
 }
@@ -46,10 +45,6 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
-    func requestStarted() {
-        customView.startShowingActivityIndicator()
-    }
-
     func didFinishRequest(viewModel:  ___VARIABLE_sceneName___.ViewModel) {
         customView.stopShowingActivityIndicator()
         customView.display(viewModel: viewModel)
@@ -58,7 +53,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     func presentError(message: String) {
         customView.stopShowingActivityIndicator()
         guard message != .empty else { return }
-        let alert = AlertsFactory.error(
+        let alert = AlertsFactory.plain(
             title: Text.Alert.error,
             message: message,
             cancelText: Text.Alert.cancel

@@ -9,7 +9,7 @@ public final class ___VARIABLE_cellName___: UITableViewCell {
 
     // MARK: - Init
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
@@ -19,13 +19,11 @@ public final class ___VARIABLE_cellName___: UITableViewCell {
         commonInit()
     }
 
-    func commonInit() {
+    private func commonInit() {
         setupStyle()
         addSubviews()
         makeConstraints()
     }
-
-    // MARK: - Private methods
 
     private func setupStyle() {
     }
@@ -34,5 +32,10 @@ public final class ___VARIABLE_cellName___: UITableViewCell {
     }
 
     private func makeConstraints() {
+    }
+
+    // MARK: - Public methods
+
+    public func configure() {
     }
 }
