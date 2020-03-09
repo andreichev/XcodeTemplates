@@ -10,7 +10,7 @@ public protocol ___VARIABLE_cellName___Delegate: AnyObject {}
 public final class ___VARIABLE_cellName___: UITableViewCell {
     // MARK: - Properties
 
-    @IBOutlet var titleLabel: UILabel!
+    weak var delegate: ___VARIABLE_cellName___Delegate?
 
     // MARK: - Xib init
 
