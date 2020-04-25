@@ -64,13 +64,27 @@
 			<key>Required</key>
 			<true/>
 			<key>Name</key>
-			<string>Viiew Name:</string>
+			<string>View Name:</string>
 			<key>Identifier</key>
 			<string>viewName</string>
 			<key>Default</key>
 			<string>___VARIABLE_sceneName:identifier___View</string>
 			<key>Description</key>
 			<string>The view name</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>static</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Data source Name:</string>
+			<key>Identifier</key>
+			<string>dataSource</string>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___sDataSource</string>
+			<key>Description</key>
+			<string>The Data Source class name</string>
 		</dict>
 	</array>
 	<key>Kind</key>

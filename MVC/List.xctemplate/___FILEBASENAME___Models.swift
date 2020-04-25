@@ -1,5 +1,7 @@
 //___FILEHEADER___
 
+import GeneralBusinessLogic
+
 struct ___VARIABLE_entityName___ListRequest {
     let page: Int
 }

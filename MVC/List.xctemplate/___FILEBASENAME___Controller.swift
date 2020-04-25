@@ -34,7 +34,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     }
 
     private func setup() {
-        interactor = ___VARIABLE_entityName___sInteractor()
+        interactor = ___VARIABLE_sceneName___Interactor()
         interactor?.controller = self
     }
 
@@ -85,7 +85,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
 // MARK: - ___VARIABLE_entityName___sDataSourceDelegate
 
-extension ___VARIABLE_entityName___sController: ___VARIABLE_entityName___sDataSourceDelegate {
+extension ___VARIABLE_sceneName___Controller: ___VARIABLE_entityName___sDataSourceDelegate {
     func loadPage(page: Int) {
         interactor?.loadList(page: page)
     }

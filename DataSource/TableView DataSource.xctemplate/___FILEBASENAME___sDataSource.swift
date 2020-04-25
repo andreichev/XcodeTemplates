@@ -1,8 +1,13 @@
 // ___FILEHEADER___
 
 import GeneralBusinessLogic
+import SharedComponents
 
-protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {}
+protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {
+    func loadPage(page: Int)
+    func didSelect___VARIABLE_entityName___(_ item: ___VARIABLE_entityName___)
+    func actionButtonTapped()
+}
 
 final class ___VARIABLE_entityName___sDataSource: NSObject {
 
@@ -16,7 +21,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
     }
 
     private var data: [___VARIABLE_entityName___] = []
-    private var tableView: UITableView
+    private var tableView: UITableView?
     private var nextPageNumber: Int?
 
     weak var delegate: ___VARIABLE_entityName___sDataSourceDelegate?
@@ -58,7 +63,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
         self.data = data
         self.nextPageNumber = nextPageNumber
         isLoadingNextPage = false
-        if orders.isEmpty {
+        if data.isEmpty {
             state = .noContent
         } else {
             state = .presentingList
@@ -93,14 +98,17 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 // MARK: - UITableViewDataSource
 
 extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
-    if state == .presentingList {
-        if isLoadingNextPage {
-            return data.count + 1
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if state == .presentingList {
+            if isLoadingNextPage {
+                return data.count + 1
+            } else {
+                return data.count
+            }
         } else {
-            return data.count
+            return 1
         }
-    } else {
-        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,14 +163,9 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
 extension ___VARIABLE_entityName___sDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // openItemAction in delegate
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if state == .presentingList, indexPath.row < orders.count {
+        if state == .presentingList, indexPath.row < data.count {
             let item = data[indexPath.row]
-            // openItemAction in delegate if need
+            delegate?.didSelect___VARIABLE_entityName___(item)
         }
     }
 
@@ -180,5 +183,7 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDelegate {
 // MARK: - Action handlers
 
 extension ___VARIABLE_entityName___sDataSource: ErrorCellDelegate {
-    func reloadData() {}
+    func reloadData() {
+        delegate?.actionButtonTapped()
+    }
 }

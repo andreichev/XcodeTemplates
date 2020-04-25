@@ -9,7 +9,7 @@ protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
 
 class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
     weak var controller: ___VARIABLE_sceneName___ControllerLogic?
-    let service: ___VARIABLE_sceneName___ServiceProtocol = ___VARIABLE_sceneName___ServiceFactory.orderService
+    let service: ___VARIABLE_sceneName___ServiceProtocol = ___VARIABLE_sceneName___ServiceFactory.service
 
     func loadList(page: Int) {
         service.get___VARIABLE_entityName___s(page: page) { [weak self] response, error in
