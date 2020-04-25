@@ -3,15 +3,15 @@
 import SharedComponents
 
 protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
-    func loadSomething(request: ___VARIABLE_sceneName___.Request)
+    func loadSomething()
 }
 
 class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
     weak var controller: ___VARIABLE_sceneName___ControllerLogic?
     let service: SomeServiceProtocol = SomeServiceFactory.someService
 
-    func loadSomething(request: ___VARIABLE_sceneName___.Request) {
-        service.doRequest(request) { [weak self] response, error in
+    func loadSomething() {
+        service.doRequest { [weak self] response, error in
             guard let self = self else { return }
             if let error = error {
                 self.controller?.presentError(message: error.localizedDescription)

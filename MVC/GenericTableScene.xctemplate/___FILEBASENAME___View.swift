@@ -1,14 +1,13 @@
 //___FILEHEADER___
 
 import MDFoundation
-import SharedBusinessLogic
+import GeneralBusinessLogic
 import SharedComponents
-import Storable
 
 final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Properties
 
-    public var tableView: UITableView = {
+    var tableView: UITableView = {
         let tableView = UITableView(frame: UIScreen.main.bounds)
         tableView.tableFooterView = UIView()
         tableView.allowsSelection = false
@@ -19,7 +18,7 @@ final class ___VARIABLE_sceneName___View: UIView {
         return tableView
     }()
 
-    public var tableBuilder: ___VARIABLE_sceneName___TableBuilder?
+    var tableBuilder: ___VARIABLE_sceneName___TableBuilder?
 
     // MARK: - Init
 
@@ -59,9 +58,9 @@ final class ___VARIABLE_sceneName___View: UIView {
         )
     }
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
 
-    public func updateAppearance(with entity: ___VARIABLE_entityName___, animated: Bool = true) {
+    func updateAppearance(with entity: ___VARIABLE_entityName___, animated: Bool = true) {
         tableBuilder?.update___VARIABLE_entityName___(entity, animated: animated)
     }
 

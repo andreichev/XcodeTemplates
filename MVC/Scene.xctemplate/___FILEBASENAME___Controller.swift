@@ -5,7 +5,7 @@ import MDFoundation
 import SharedComponents
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
-    func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
+    func didFinishRequest()
     func presentError(message: String)
 }
 
@@ -45,7 +45,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
-    func didFinishRequest(viewModel:  ___VARIABLE_sceneName___.ViewModel) {
+    func didFinishRequest() {
         customView.stopShowingActivityIndicator()
         customView.display(viewModel: viewModel)
     }

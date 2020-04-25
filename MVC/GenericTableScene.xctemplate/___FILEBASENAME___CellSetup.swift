@@ -1,29 +1,29 @@
 //___FILEHEADER___
 
-import SharedBusinessLogic
+import GeneralBusinessLogic
 import SharedComponents
 
-public protocol ___VARIABLE_sceneName___CellSetupDelegate: AnyObject {
+protocol ___VARIABLE_sceneName___CellSetupDelegate: AnyObject {
     func reloadAction()
 }
 
-public final class ___VARIABLE_sceneName___CellSetup {
+final class ___VARIABLE_sceneName___CellSetup {
     private var entity: ___VARIABLE_entityName___?
-    public var messageAboutError: String = .empty
-    public weak var delegate: ___VARIABLE_sceneName___CellSetupDelegate?
+    var messageAboutError: String = .empty
+    weak var delegate: ___VARIABLE_sceneName___CellSetupDelegate?
 
     private var tableView: UITableView
 
     // MARK: - Init
 
-    public init(entity: ___VARIABLE_entityName___?, tableView: UITableView) {
+    init(entity: ___VARIABLE_entityName___?, tableView: UITableView) {
         self.entity = entity
         self.tableView = tableView
     }
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
 
-    public func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___) {
+    func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___) {
         self.entity = entity
     }
 
@@ -48,7 +48,7 @@ public final class ___VARIABLE_sceneName___CellSetup {
 // MARK: - Action handlers
 
 extension ___VARIABLE_sceneName___CellSetup: ErrorCellDelegate {
-    public func reloadData() {
+    func reloadData() {
         delegate?.reloadAction()
     }
 }

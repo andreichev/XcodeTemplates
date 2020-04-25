@@ -5,14 +5,14 @@ import SharedComponents
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
-    func didFinishRequest(viewModel: ___VARIABLE_sceneName___.ViewModel)
+    func didFinishRequest()
     func presentError(message: String)
 }
 
 public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: StrongRouter<Routes>?
+    public var router: Router<Routes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView: ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
@@ -48,15 +48,15 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
-    func didFinishRequest(viewModel:  ___VARIABLE_sceneName___.ViewModel) {
+    func didFinishRequest() {
         customView?.stopShowingActivityIndicator()
-        customView?.display(viewModel: viewModel)
+        customView?.display()
     }
 
     func presentError(message: String) {
         customView?.stopShowingActivityIndicator()
         guard message != .empty else { return }
-        let alert = AlertsFactory.error(
+        let alert = AlertsFactory.plain(
             title: Text.Alert.error,
             message: message,
             cancelText: Text.Alert.cancel

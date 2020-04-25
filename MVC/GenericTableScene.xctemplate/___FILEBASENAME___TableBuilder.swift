@@ -1,10 +1,10 @@
 //___FILEHEADER___
 
-import SharedBusinessLogic
+import GeneralBusinessLogic
 import SharedComponents
 
-public final class ___VARIABLE_sceneName___TableBuilder {
-    public typealias Row = GenericTableViewRowModel
+final class ___VARIABLE_sceneName___TableBuilder {
+    typealias Row = GenericTableViewRowModel
 
     // MARK: - Properties
 
@@ -37,7 +37,7 @@ public final class ___VARIABLE_sceneName___TableBuilder {
     
     // MARK: - Init
 
-    public init(tableView: UITableView, entity: ___VARIABLE_entityName___?) {
+    init(tableView: UITableView, entity: ___VARIABLE_entityName___?) {
         self.entity = entity
         self.tableView = tableView
         self.genericDataSource = GenericTableViewDataSource(with: dataStorage)
@@ -55,19 +55,28 @@ public final class ___VARIABLE_sceneName___TableBuilder {
         reloadData(animated: false)
     }
 
-    public func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___, animated: Bool) {
+    func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___, animated: Bool) {
         cellsSetup.update___VARIABLE_entityName___(entity)
         buildFullTableStructure()
         reloadData(animated: animated)
     }
 
-    public func reloadData(animated: Bool) {
-        if animated {
+    func reloadData(animated: Bool) {
+        if animated == false { tableView.reloadData(); return }
+        if genericDataSource.numberOfSections(in: tableView) == tableView.numberOfSections {
             let range = NSRange(location: 0, length: tableView.numberOfSections)
             let sections = NSIndexSet(indexesIn: range)
             tableView.reloadSections(sections as IndexSet, with: .fade)
         } else {
-            tableView.reloadData()
+            UIView.transition(
+                with: tableView,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: { [weak self] in
+                    self?.tableView.reloadData()
+                },
+                completion: nil
+            )
         }
     }
 

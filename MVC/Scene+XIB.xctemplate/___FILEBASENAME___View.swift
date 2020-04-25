@@ -23,7 +23,7 @@ final class ___VARIABLE_sceneName___View: UIView {
 
     // MARK: - Internal methods
 
-    func displaySomething(viewModel: ___VARIABLE_sceneName___.ViewModel) {
+    func displaySomething() {
         //nameTextField.text = viewModel.name
     }
 }

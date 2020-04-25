@@ -1,7 +1,7 @@
 //___FILEHEADER___
 
 import MDFoundation
-import SharedBusinessLogic
+import GeneralBusinessLogic
 import SharedComponents
 import MDCoordinator
 
