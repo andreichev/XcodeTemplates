@@ -39,7 +39,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     }
 
     private func setupAppearance() {
-        title = Text.___VARIABLE_entityName___s.title
+        title = Text.___VARIABLE_sceneName___.title
         extendedLayoutIncludesOpaqueBars = true
     }
 
