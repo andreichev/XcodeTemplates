@@ -54,14 +54,10 @@ final class ___VARIABLE_sceneName___View: UITableView {
     }
 
     func update___VARIABLE_entityName___s(_ data: [___VARIABLE_entityName___], nextPageNumber: Int?) {
-        customDataSource.update___VARIABLE_entityName___s(data, nextPageNumber: nextPageNumber)
+        customDataSource.updateData(data, nextPageNumber: nextPageNumber)
     }
 
     func append___VARIABLE_entityName___s(_ data: [___VARIABLE_entityName___], nextPageNumber: Int?) {
-        customDataSource.append___VARIABLE_entityName___s(data, nextPageNumber: nextPageNumber)
-    }
-
-    func update___VARIABLE_entityName___(_ item: ___VARIABLE_entityName___) {
-        customDataSource.update___VARIABLE_entityName___(item)
+        customDataSource.appendData(data, nextPageNumber: nextPageNumber)
     }
 }
