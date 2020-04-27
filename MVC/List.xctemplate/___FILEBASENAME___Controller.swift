@@ -1,9 +1,9 @@
 //___FILEHEADER___
 
-import GeneralBusinessLogic
+import General
 import MDCoordinator
 import MDFoundation
-import SharedComponents
+import General
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func displayList(response: ___VARIABLE_entityName___ListResponse)

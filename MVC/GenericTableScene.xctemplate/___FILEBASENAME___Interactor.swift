@@ -1,6 +1,6 @@
 //___FILEHEADER___
 
-import SharedComponents
+import General
 
 protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
     func load___VARIABLE_entityName___()

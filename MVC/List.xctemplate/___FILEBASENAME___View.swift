@@ -1,9 +1,9 @@
 //___FILEHEADER___
 
 import Foundation
-import GeneralBusinessLogic
+import General
 import MDFoundation
-import SharedComponents
+import General
 
 final class ___VARIABLE_sceneName___View: UITableView {
     // MARK: - Properties

@@ -1,7 +1,6 @@
 //___FILEHEADER___
 
-import GeneralBusinessLogic
-import SharedComponents
+import General
 
 final class ___VARIABLE_sceneName___TableBuilder {
     typealias Row = GenericTableViewRowModel

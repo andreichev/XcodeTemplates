@@ -2,7 +2,7 @@
 
 import MDCoordinator
 import MDFoundation
-import SharedComponents
+import General
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func didFinishRequest()

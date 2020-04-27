@@ -1,6 +1,6 @@
 //___FILEHEADER___
 
-import SharedComponents
+import General
 
 final class ___VARIABLE_sceneName___View: UIView {
     

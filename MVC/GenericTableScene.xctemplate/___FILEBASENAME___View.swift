@@ -1,8 +1,7 @@
 //___FILEHEADER___
 
 import MDFoundation
-import GeneralBusinessLogic
-import SharedComponents
+import General
 
 final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Properties

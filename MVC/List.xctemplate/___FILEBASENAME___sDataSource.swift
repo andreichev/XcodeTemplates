@@ -1,7 +1,6 @@
 // ___FILEHEADER___
 
-import GeneralBusinessLogic
-import SharedComponents
+import General
 
 protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {
     func loadPage(page: Int)
@@ -134,7 +133,7 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
                 withIdentifier: NoContentCell.identifier,
                 for: indexPath
             ) as? NoContentCell
-            cell?.configure(text: Text.ClientOrders.noContent)
+            cell?.configure(text: Text.___VARIABLE_sceneName___.noContent)
             return cell ?? UITableViewCell()
         case .presentingList:
             if indexPath.row < data.count {
