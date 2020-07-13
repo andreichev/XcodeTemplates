@@ -1,7 +1,8 @@
 // ___FILEHEADER___
 
 import MDFoundation
-import General
+import SharedComponents
+import BusinessLogic
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {

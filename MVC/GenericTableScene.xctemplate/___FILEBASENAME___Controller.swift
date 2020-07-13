@@ -1,7 +1,8 @@
 //___FILEHEADER___
 
 import MDFoundation
-import General
+import SharedComponents
+import BusinessLogic
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
@@ -27,6 +28,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupAppearance()
         load___VARIABLE_entityName___()
     }
@@ -63,5 +65,5 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 // MARK: - ___VARIABLE_sceneName___CellSetupDelegate
 
 extension ___VARIABLE_sceneName___Controller: ___VARIABLE_sceneName___CellSetupDelegate {
-    public func reloadAction() {}
+    func reloadAction() {}
 }

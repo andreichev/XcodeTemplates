@@ -1,6 +1,6 @@
 //___FILEHEADER___
 
-import General
+import BusinessLogic
 
 class ___VARIABLE_sceneName___ServiceMock: ___VARIABLE_sceneName___ServiceProtocol {
     func get(completion: @escaping (___VARIABLE_sceneName___?, Error?) -> Void) {

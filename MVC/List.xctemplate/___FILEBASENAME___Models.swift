@@ -1,6 +1,7 @@
 //___FILEHEADER___
 
-import General
+import SharedComponents
+import BusinessLogic
 
 struct ___VARIABLE_entityName___ListRequest {
     let page: Int

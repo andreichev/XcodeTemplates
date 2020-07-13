@@ -1,6 +1,7 @@
 //___FILEHEADER___
 
-import General
+import SharedComponents
+import BusinessLogic
 
 protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
     func loadList(page: Int)

@@ -2,7 +2,8 @@
 
 import MDCoordinator
 import MDFoundation
-import General
+import SharedComponents
+import BusinessLogic
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func didFinishRequest()
