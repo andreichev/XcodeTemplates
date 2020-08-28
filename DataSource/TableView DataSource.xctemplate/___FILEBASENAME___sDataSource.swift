@@ -1,6 +1,7 @@
 // ___FILEHEADER___
 
-import General
+import SharedComponents
+import BusinessLogic
 
 protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {
     func loadPage(page: Int)
@@ -171,7 +172,8 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y + scrollView.frame.size.height)
             > scrollView.contentSize.height,
-            isLoadingNextPage == false, nextPageNumber != nil {
+            isLoadingNextPage == false, nextPageNumber != nil,
+            state == .presentingList {
             isLoadingNextPage = true
             reloadData(animated: false)
             loadNextPage()
