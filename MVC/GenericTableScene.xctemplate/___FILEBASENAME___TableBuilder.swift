@@ -1,7 +1,6 @@
 //___FILEHEADER___
 
-import SharedComponents
-import BusinessLogic
+import UIKit
 
 final class ___VARIABLE_sceneName___TableBuilder {
     typealias Row = GenericTableViewRowModel
@@ -14,26 +13,7 @@ final class ___VARIABLE_sceneName___TableBuilder {
     private var dataStorage: GenericTableViewDataStorage = GenericTableViewDataStorage()
     private var tableView: UITableView
     private var cellsSetup: ___VARIABLE_sceneName___CellSetup
-    var entity: ___VARIABLE_entityName___?
-
-        // Action handlers properties
-    var delegate: ___VARIABLE_sceneName___CellSetupDelegate? {
-        get {
-            return cellsSetup.delegate
-        }
-        set {
-            cellsSetup.delegate = newValue
-        }
-    }
-
-    var messageAboutError: String {
-        get {
-            return cellsSetup.messageAboutError
-        }
-        set {
-            cellsSetup.messageAboutError = newValue
-        }
-    }
+    private var entity: ___VARIABLE_entityName___?
     
     // MARK: - Init
 
@@ -49,12 +29,17 @@ final class ___VARIABLE_sceneName___TableBuilder {
 
     // MARK: - Internal methods
 
+    func setDelegate(_ delegate: ___VARIABLE_sceneName___CellSetupDelegate) {
+        cellsSetup.delegate = delegate
+    }
+
     func showLoading() {
         buildLoadingTableStructure()
         reloadData(animated: true)
     }
 
-    func showError() {
+    func showError(message: String) {
+        cellsSetup.messageAboutError = message
         buildErrorCellTableStructure()
         reloadData(animated: false)
     }

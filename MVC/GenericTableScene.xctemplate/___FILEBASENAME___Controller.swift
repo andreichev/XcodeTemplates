@@ -39,7 +39,7 @@ class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneNam
     private func setupAppearance() {
         extendedLayoutIncludesOpaqueBars = true
         title = Text.___VARIABLE_entityName___.title
-        customView.tableBuilder?.delegate = self
+        customView.setDelegate(self)
     }
 
     // MARK: - Network requests
