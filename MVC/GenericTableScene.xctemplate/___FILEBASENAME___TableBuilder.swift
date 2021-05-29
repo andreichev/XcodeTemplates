@@ -51,7 +51,9 @@ final class ___VARIABLE_sceneName___TableBuilder {
         reloadData(animated: animated)
     }
 
-    func reloadData(animated: Bool) {
+    // MARK: - Private methods
+
+    private func reloadData(animated: Bool) {
         if animated == false { tableView.reloadData(); return }
         if genericDataSource.numberOfSections(in: tableView) == tableView.numberOfSections {
             let range = NSRange(location: 0, length: tableView.numberOfSections)
@@ -69,8 +71,6 @@ final class ___VARIABLE_sceneName___TableBuilder {
             )
         }
     }
-
-    // MARK: - Private methods
 
     private func buildErrorCellTableStructure() {
         let rowsSequence: [Row] = [
