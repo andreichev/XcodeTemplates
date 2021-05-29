@@ -2,14 +2,14 @@
 
 import UIKit
 
-public final class ___VARIABLE_cellName___: UITableViewCell {
+final class ___VARIABLE_cellName___: UITableViewCell {
     struct Appearance {}
 
     // MARK: - Properties
 
     // MARK: - Init
 
-    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
@@ -25,17 +25,13 @@ public final class ___VARIABLE_cellName___: UITableViewCell {
         makeConstraints()
     }
 
-    private func setupStyle() {
-    }
+    private func setupStyle() {}
 
-    private func addSubviews() {
-    }
+    private func addSubviews() {}
 
-    private func makeConstraints() {
-    }
+    private func makeConstraints() {}
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
 
-    public func configure() {
-    }
+    func configure() {}
 }

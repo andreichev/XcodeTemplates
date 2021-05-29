@@ -1,7 +1,6 @@
 //___FILEHEADER___
 
-import SharedComponents
-import BusinessLogic
+import UIKit
 
 protocol ___VARIABLE_sceneName___CellSetupDelegate: AnyObject {
     func reloadAction()

@@ -1,8 +1,6 @@
 // ___FILEHEADER___
 
 import MDFoundation
-import SharedComponents
-import BusinessLogic
 
 final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Properties
@@ -25,6 +23,6 @@ final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Internal methods
 
     func displaySomething() {
-        //nameTextField.text = viewModel.name
+        // nameTextField.text = viewModel.name
     }
 }

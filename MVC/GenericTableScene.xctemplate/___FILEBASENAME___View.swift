@@ -60,6 +60,10 @@ final class ___VARIABLE_sceneName___View: UIView {
 
     // MARK: - Internal methods
 
+    func showLoading() {
+        tableBuilder?.showLoading()
+    }
+
     func updateAppearance(with entity: ___VARIABLE_entityName___, animated: Bool = true) {
         tableBuilder?.update___VARIABLE_entityName___(entity, animated: animated)
     }

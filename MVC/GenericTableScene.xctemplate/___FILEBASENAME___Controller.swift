@@ -1,8 +1,6 @@
 //___FILEHEADER___
 
 import MDFoundation
-import SharedComponents
-import BusinessLogic
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
@@ -10,10 +8,10 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func presentError(message: String)
 }
 
-public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: Router<___VARIABLE_entityName___Routes>?
+    var router: Router<___VARIABLE_entityName___Routes>?
 
     lazy var customView = ___VARIABLE_sceneName___View()
     var interactor: ___VARIABLE_sceneName___Interactor?
@@ -22,11 +20,11 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     // MARK: - Life cycle
 
-    public override func loadView() {
+    override func loadView() {
         view = customView
     }
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupAppearance()
@@ -47,6 +45,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
     // MARK: - Network requests
 
     private func load___VARIABLE_entityName___() {
+        customView.showLoading()
         interactor.load___VARIABLE_entityName___()
     }
 
@@ -65,5 +64,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 // MARK: - ___VARIABLE_sceneName___CellSetupDelegate
 
 extension ___VARIABLE_sceneName___Controller: ___VARIABLE_sceneName___CellSetupDelegate {
-    func reloadAction() {}
+    func reloadAction() {
+        load___VARIABLE_entityName___()
+    }
 }

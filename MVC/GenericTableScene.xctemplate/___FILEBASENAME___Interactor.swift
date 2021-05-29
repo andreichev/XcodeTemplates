@@ -16,6 +16,7 @@ class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic 
             guard let self = self else { return }
             if let error = error {
                 self.controller?.presentError(message: error.localizedDescription)
+                return
             }
             if let response = response {
                 self.controller?.present___VARIABLE_entityName___(response)

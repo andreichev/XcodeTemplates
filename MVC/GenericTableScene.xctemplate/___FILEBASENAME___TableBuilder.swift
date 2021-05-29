@@ -18,20 +18,20 @@ final class ___VARIABLE_sceneName___TableBuilder {
 
         // Action handlers properties
     var delegate: ___VARIABLE_sceneName___CellSetupDelegate? {
-        set {
-            cellsSetup.delegate = newValue
-        }
         get {
             return cellsSetup.delegate
+        }
+        set {
+            cellsSetup.delegate = newValue
         }
     }
 
     var messageAboutError: String {
-        set {
-            cellsSetup.messageAboutError = newValue
-        }
         get {
             return cellsSetup.messageAboutError
+        }
+        set {
+            cellsSetup.messageAboutError = newValue
         }
     }
     
@@ -45,10 +45,14 @@ final class ___VARIABLE_sceneName___TableBuilder {
         tableView.dataSource = genericDataSource
         tableView.delegate = genericTableViewDelegate
         self.cellsSetup = ___VARIABLE_sceneName___CellSetup(entity: entity, tableView: tableView)
-        buildMinimalTableStructure()
     }
 
     // MARK: - Internal methods
+
+    func showLoading() {
+        buildLoadingTableStructure()
+        reloadData(animated: true)
+    }
 
     func showError() {
         buildErrorCellTableStructure()
@@ -56,6 +60,7 @@ final class ___VARIABLE_sceneName___TableBuilder {
     }
 
     func update___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___, animated: Bool) {
+        self.entity = entity
         cellsSetup.update___VARIABLE_entityName___(entity)
         buildFullTableStructure()
         reloadData(animated: animated)
@@ -89,7 +94,7 @@ final class ___VARIABLE_sceneName___TableBuilder {
         setRowsSequenceToDataStorage(rowsSequence: rowsSequence)
     }
 
-    private func buildMinimalTableStructure() {
+    private func buildLoadingTableStructure() {
         let rowsSequence: [Row] = [
             Row(LoadingCell.loadingCell(_:for:)),
         ]

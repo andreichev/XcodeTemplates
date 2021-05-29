@@ -1,8 +1,6 @@
 // ___FILEHEADER___
 
 import MDFoundation
-import SharedComponents
-import BusinessLogic
 import MDCoordinator
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
@@ -10,20 +8,20 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func presentError(message: String)
 }
 
-public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: Router<Routes>?
+    var router: Router<Routes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView: ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
 
     // MARK: - Init
 
-    public init() {
+    init() {
         super.init(
             nibName: Utils.getClassName(___VARIABLE_sceneName___View.self),
-            bundle: Bundle(for: ___VARIABLE_sceneName___View.self)
+            bundle: resourcesBundle
         )
         setup()
         setupAppearance()
@@ -51,7 +49,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     func didFinishRequest() {
         customView?.stopShowingActivityIndicator()
-        customView?.display()
+        customView?.displaySomething()
     }
 
     func presentError(message: String) {
@@ -60,6 +58,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
         let alert = AlertsFactory.plain(
             title: Text.Alert.error,
             message: message,
+            tintColor: Assets.baseTint1.color,
             cancelText: Text.Alert.cancel
         )
         present(alert, animated: true, completion: nil)

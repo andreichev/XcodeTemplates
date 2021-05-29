@@ -1,7 +1,6 @@
 //___FILEHEADER___
 
-import SharedComponents
-import BusinessLogic
+import UIKit
 
 final class ___VARIABLE_sceneName___View: UIView {
     

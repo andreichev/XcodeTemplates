@@ -2,29 +2,27 @@
 
 import MDCoordinator
 import MDFoundation
-import SharedComponents
-import BusinessLogic
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func didFinishRequest()
     func presentError(message: String)
 }
 
-public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: Router<Routes>?
+    var router: Router<Routes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View()
 
     // MARK: - Life cycle
 
-    public override func loadView() {
+    override func loadView() {
         view = customView
     }
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupAppearance()
@@ -48,7 +46,7 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     func didFinishRequest() {
         customView.stopShowingActivityIndicator()
-        customView.display(viewModel: viewModel)
+        // customView.display(viewModel: viewModel)
     }
 
     func presentError(message: String) {

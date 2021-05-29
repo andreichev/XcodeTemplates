@@ -1,7 +1,6 @@
 // ___FILEHEADER___
 
-import SharedComponents
-import BusinessLogic
+import UIKit
 
 protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {
     func loadPage(page: Int)

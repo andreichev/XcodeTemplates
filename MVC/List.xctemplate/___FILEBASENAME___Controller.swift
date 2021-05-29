@@ -2,18 +2,16 @@
 
 import MDCoordinator
 import MDFoundation
-import SharedComponents
-import BusinessLogic
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func displayList(response: ___VARIABLE_entityName___ListResponse)
     func presentError(message: String)
 }
 
-public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
-    public var router: Router<___VARIABLE_sceneName___ControllerRoutes>?
+    var router: Router<___VARIABLE_sceneName___ControllerRoutes>?
     var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View()
@@ -21,11 +19,11 @@ public class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_s
 
     // MARK: - Life cycle
 
-    public override func loadView() {
+    override func loadView() {
         view = customView
     }
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupAppearance()
