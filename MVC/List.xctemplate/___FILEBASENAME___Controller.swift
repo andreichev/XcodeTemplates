@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import MDCoordinator
 import MDFoundation
@@ -43,7 +43,7 @@ final class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sc
 
     // MARK: - Network requests
 
-    @objc 
+    @objc
     private func load___VARIABLE_entityName___s() {
         interactor?.loadList(page: 0)
     }
@@ -86,7 +86,7 @@ extension ___VARIABLE_sceneName___Controller: ___VARIABLE_entityName___sDataSour
         interactor?.loadList(page: page)
     }
 
-    func didSelect___VARIABLE_entityName___(_ item: ___VARIABLE_entityName___) {
+    func didSelect___VARIABLE_entityName___(_: ___VARIABLE_entityName___) {
         // router?.trigger(.openItem(delegate: self, item: item))
     }
 

@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import UIKit
 
@@ -10,21 +10,21 @@ final class ___VARIABLE_sceneName___TableBuilder {
     private var genericDataSource: GenericTableViewDataSource
     // swiftlint:disable weak_delegate
     private var genericTableViewDelegate: GenericTableViewDelegate?
-    private var dataStorage: GenericTableViewDataStorage = GenericTableViewDataStorage()
+    private var dataStorage: GenericTableViewDataStorage = .init()
     private var tableView: UITableView
     private var cellsSetup: ___VARIABLE_sceneName___CellSetup
     private var entity: ___VARIABLE_entityName___?
-    
+
     // MARK: - Init
 
     init(tableView: UITableView, entity: ___VARIABLE_entityName___?) {
         self.entity = entity
         self.tableView = tableView
-        self.genericDataSource = GenericTableViewDataSource(with: dataStorage)
-        self.genericTableViewDelegate = GenericTableViewDelegate(with: dataStorage)
+        genericDataSource = GenericTableViewDataSource(with: dataStorage)
+        genericTableViewDelegate = GenericTableViewDelegate(with: dataStorage)
         tableView.dataSource = genericDataSource
         tableView.delegate = genericTableViewDelegate
-        self.cellsSetup = ___VARIABLE_sceneName___CellSetup(entity: entity, tableView: tableView)
+        cellsSetup = ___VARIABLE_sceneName___CellSetup(entity: entity, tableView: tableView)
     }
 
     // MARK: - Internal methods
@@ -89,7 +89,7 @@ final class ___VARIABLE_sceneName___TableBuilder {
     private func buildFullTableStructure() {
         let rowsSequence: [Row] = [
             Row(cellsSetup.someCell(_:for:)),
-            Row(cellsSetup.otherCell(_:for:))
+            Row(cellsSetup.otherCell(_:for:)),
         ]
         setRowsSequenceToDataStorage(rowsSequence: rowsSequence)
     }

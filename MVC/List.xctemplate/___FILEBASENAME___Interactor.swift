@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
     func loadList(page: Int)

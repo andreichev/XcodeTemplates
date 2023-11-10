@@ -1,9 +1,8 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import UIKit
 
 final class ___VARIABLE_sceneName___View: UIView {
-    
     struct Appearance {}
 
     // MARK: - Properties
@@ -19,7 +18,7 @@ final class ___VARIABLE_sceneName___View: UIView {
         super.init(coder: coder)
         commonInit()
     }
-    
+
     private func commonInit() {
         setupStyle()
         addSubviews()
@@ -35,6 +34,6 @@ final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Internal methods
 
     func display() {
-        //nameTextField.text = model.name
+        // nameTextField.text = model.name
     }
 }

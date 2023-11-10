@@ -1,7 +1,7 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
-import MDFoundation
 import MDCoordinator
+import MDFoundation
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func present___VARIABLE_entityName___(_ entity: ___VARIABLE_entityName___)

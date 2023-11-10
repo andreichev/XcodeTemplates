@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import MDFoundation
 
@@ -18,7 +18,7 @@ final class ___VARIABLE_sceneName___View: UIView {
         return tableView
     }()
 
-    private var customDataSource: ___VARIABLE_entityName___sDataSource = ___VARIABLE_entityName___sDataSource()
+    private var customDataSource: ___VARIABLE_entityName___sDataSource = .init()
 
     // MARK: - Init
 

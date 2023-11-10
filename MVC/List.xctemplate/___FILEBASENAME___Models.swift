@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 struct Get___VARIABLE_entityName___Request {
     let page: Int

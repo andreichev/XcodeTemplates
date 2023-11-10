@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import MDFoundation
 
@@ -25,7 +25,7 @@ final class ___VARIABLE_sceneName___View: UIView {
         commonInit()
     }
 
-    required init?(coder : NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }

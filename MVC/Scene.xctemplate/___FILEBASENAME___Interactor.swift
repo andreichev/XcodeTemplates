@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 final class ___VARIABLE_sceneName___Interactor {
     weak var controller: ___VARIABLE_sceneName___ControllerLogic?

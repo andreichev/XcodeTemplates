@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 import UIKit
 
@@ -28,17 +28,17 @@ final class ___VARIABLE_sceneName___CellSetup {
 
     // MARK: - Cells setup
 
-    func someCell(_ cell: UITableViewCell, for indexPath: IndexPath) {
+    func someCell(_ cell: UITableViewCell, for _: IndexPath) {
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = "Some cell"
     }
 
-    func otherCell(_ cell: UITableViewCell, for indexPath: IndexPath) {
+    func otherCell(_ cell: UITableViewCell, for _: IndexPath) {
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = "Other cell"
     }
 
-    func errorCell(_ cell: ErrorCell, for indexPath: IndexPath) {
+    func errorCell(_ cell: ErrorCell, for _: IndexPath) {
         cell.configure(with: messageAboutError)
         cell.delegate = self
     }
@@ -51,4 +51,3 @@ extension ___VARIABLE_sceneName___CellSetup: ErrorCellDelegate {
         delegate?.reloadAction()
     }
 }
-

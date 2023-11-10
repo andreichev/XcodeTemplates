@@ -9,7 +9,6 @@ protocol ___VARIABLE_entityName___sDataSourceDelegate: AnyObject {
 }
 
 final class ___VARIABLE_entityName___sDataSource: NSObject {
-
     // MARK: - Properties
 
     enum State {
@@ -85,8 +84,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 // MARK: - UITableViewDataSource
 
 extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         if state == .presentingList {
             if isLoadingNextPage {
                 return data.count + 1
@@ -143,7 +141,8 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDelegate {
         if (scrollView.contentOffset.y + scrollView.frame.size.height)
             > scrollView.contentSize.height,
             isLoadingNextPage == false, nextPageNumber != nil,
-            state == .presentingList {
+            state == .presentingList
+        {
             isLoadingNextPage = true
             reloadData(animated: false)
             loadNextPage()

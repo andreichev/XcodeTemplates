@@ -1,7 +1,7 @@
 // ___FILEHEADER___
 
-import MDFoundation
 import MDCoordinator
+import MDFoundation
 
 protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func didFinishRequest()
@@ -28,7 +28,8 @@ final class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sc
         addActionHandlers()
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

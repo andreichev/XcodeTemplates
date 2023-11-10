@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 protocol ___VARIABLE_cellName___Delegate: AnyObject {}
 
