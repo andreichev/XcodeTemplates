@@ -8,15 +8,14 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func presentError(message: String)
 }
 
-class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+final class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
     var router: Router<___VARIABLE_entityName___Routes>?
 
     lazy var customView = ___VARIABLE_sceneName___View()
-    var interactor: ___VARIABLE_sceneName___Interactor?
-
-    let generator = UINotificationFeedbackGenerator()
+    private var interactor: ___VARIABLE_sceneName___Interactor?
+    private let generator = UINotificationFeedbackGenerator()
 
     // MARK: - Life cycle
 
@@ -46,7 +45,7 @@ class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneNam
 
     private func load___VARIABLE_entityName___() {
         customView.showLoading()
-        interactor.load___VARIABLE_entityName___()
+        interactor?.load___VARIABLE_entityName___()
     }
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic

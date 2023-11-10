@@ -1,24 +1,20 @@
 //___FILEHEADER___
 
-protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
-    func loadSomething()
-}
-
-class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
+class ___VARIABLE_sceneName___Interactor {
     weak var controller: ___VARIABLE_sceneName___ControllerLogic?
-    let service: SomeServiceProtocol = SomeServiceFactory.someService
+    private let service: SomeServiceProtocol = SomeServiceResolver.someService
 
     func loadSomething() {
-        service.doRequest(request) { [weak self] response, error in
-            guard let self = self else { return }
-            if let error = error {
-                self.controller?.presentError(message: error.localizedDescription)
-                return
-            }
-            if let response = response {
-                self.controller?.didFinishRequest()
-            } else {
-                self.controller?.presentError(message: Text.Errors.requestError)
+        Task {
+            do {
+                try await service.loadSomething()
+                await MainActor.run {
+                    controller?.didFinishRequest()
+                }
+            } catch {
+                await MainActor.run {
+                    controller?.presentError(message: error.localizedDescription)
+                }
             }
         }
     }

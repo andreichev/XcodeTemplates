@@ -8,11 +8,11 @@ protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
     func presentError(message: String)
 }
 
-class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+final class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
     var router: Router<Routes>?
-    var interactor: ___VARIABLE_sceneName___Interactor?
+    private var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView: ___VARIABLE_sceneName___View? = view as? ___VARIABLE_sceneName___View
 
@@ -48,19 +48,10 @@ class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneNam
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
     func didFinishRequest() {
-        customView?.stopShowingActivityIndicator()
-        customView?.displaySomething()
+        // customView.displaySomething()
     }
 
     func presentError(message: String) {
-        customView?.stopShowingActivityIndicator()
-        guard message != .empty else { return }
-        let alert = AlertsFactory.plain(
-            title: Text.Alert.error,
-            message: message,
-            tintColor: Assets.baseTint1.color,
-            cancelText: Text.Alert.cancel
-        )
-        present(alert, animated: true, completion: nil)
+        modalAlert(message)
     }
 }

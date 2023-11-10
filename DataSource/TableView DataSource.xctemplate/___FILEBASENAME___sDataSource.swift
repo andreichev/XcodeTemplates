@@ -38,22 +38,10 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 
     func setTableView(_ tableView: UITableView) {
         self.tableView = tableView
-        tableView.register(
-            ___VARIABLE_entityName___Cell.nib,
-            forCellReuseIdentifier: ___VARIABLE_entityName___Cell.identifier
-        )
-        tableView.register(
-            ErrorCell.nib,
-            forCellReuseIdentifier: ErrorCell.identifier
-        )
-        tableView.register(
-            NoContentCell.self,
-            forCellReuseIdentifier: NoContentCell.identifier
-        )
-        tableView.register(
-            LoadingCell.self,
-            forCellReuseIdentifier: LoadingCell.identifier
-        )
+        tableView.registerCell(ofType: ___VARIABLE_entityName___Cell.self)
+        tableView.registerCell(ofType: ErrorTableViewCell.self)
+        tableView.registerCell(ofType: NoContentCell.self)
+        tableView.registerCell(ofType: LoadingCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -78,7 +66,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 
     // MARK: - Private methods
 
-    func reloadData(animated: Bool) {
+    private func reloadData(animated: Bool) {
         if animated {
             let range = NSRange(location: 0, length: 1)
             let sections = NSIndexSet(indexesIn: range)
@@ -88,7 +76,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
         }
     }
 
-    func loadNextPage() {
+    private func loadNextPage() {
         guard let nextPage = nextPageNumber else { return }
         delegate?.loadPage(page: nextPage)
     }
@@ -98,7 +86,7 @@ final class ___VARIABLE_entityName___sDataSource: NSObject {
 
 extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if state == .presentingList {
             if isLoadingNextPage {
                 return data.count + 1
@@ -113,45 +101,28 @@ extension ___VARIABLE_entityName___sDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch state {
         case .loading:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: LoadingCell.identifier,
-                for: indexPath
-            ) as? LoadingCell
-
-            cell?.configure()
-            return cell ?? UITableViewCell()
+            let cell = tableView.dequeueReusableCell(LoadingCell.self, for: indexPath)
+            cell.configure()
+            return cell
         case .error:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: ErrorCell.identifier,
-                for: indexPath
-            ) as? ErrorCell
-            cell?.delegate = self
-            cell?.configure(with: errorMessage ?? .empty)
-            return cell ?? UITableViewCell()
+            let cell = tableView.dequeueReusableCell(ErrorTableViewCell.self, for: indexPath)
+            cell.delegate = self
+            return cell
         case .noContent:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: NoContentCell.identifier,
-                for: indexPath
-            ) as? NoContentCell
-            cell?.configure(text: Text.ClientOrders.noContent)
-            return cell ?? UITableViewCell()
+            let cell = tableView.dequeueReusableCell(NoContentCell.self, for: indexPath)
+            cell.configure(text: Text.___VARIABLE_sceneName___.noContent)
+            return cell
         case .presentingList:
             if indexPath.row < data.count {
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: ___VARIABLE_entityName___Cell.identifier,
-                    for: indexPath
-                ) as? ___VARIABLE_entityName___Cell
+                let cell = tableView.dequeueReusableCell(___VARIABLE_entityName___Cell.self, for: indexPath)
                 let item = data[indexPath.row]
-                cell?.configure(with: item)
-                return cell ?? UITableViewCell()
+                cell.configure(item)
+                cell.delegate = self
+                return cell
             } else {
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: LoadingCell.identifier,
-                    for: indexPath
-                ) as? LoadingCell
-
-                cell?.configure(height: 50)
-                return cell ?? UITableViewCell()
+                let cell = tableView.dequeueReusableCell(LoadingCell.self, for: indexPath)
+                cell.configure(height: 50)
+                return cell
             }
         }
     }

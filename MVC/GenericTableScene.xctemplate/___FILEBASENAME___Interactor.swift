@@ -4,21 +4,19 @@ protocol ___VARIABLE_sceneName___BusinessLogic: AnyObject {
     func load___VARIABLE_entityName___()
 }
 
-class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
+final class ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___BusinessLogic {
     weak var controller: ___VARIABLE_sceneName___ControllerLogic?
-    let someService: SomeServiceProtocol = SomeServiceFactory.someService
+    private let service: SomeServiceProtocol = SomeServiceResolver.someService
 
     func load___VARIABLE_entityName___() {
-        someService.get { [weak self] response, error in
-            guard let self = self else { return }
-            if let error = error {
-                self.controller?.presentError(message: error.localizedDescription)
-                return
-            }
-            if let response = response {
+        Task {
+            do {
+                let response = try await service.get()
                 self.controller?.present___VARIABLE_entityName___(response)
-            } else {
-                self.controller?.presentError(message: Text.Error.requestError)
+            } catch {
+                await MainActor.run {
+                    controller?.presentError(message: error.localizedDescription)
+                }
             }
         }
     }

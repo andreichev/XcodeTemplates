@@ -3,16 +3,16 @@
 import MDCoordinator
 import MDFoundation
 
-protocol ___VARIABLE_sceneName___ControllerLogic: AnyObject {
+protocol ___VARIABLE_sceneName___ControllerLogic where Self: AnyObject {
     func displayList(response: ___VARIABLE_entityName___ListResponse)
     func presentError(message: String)
 }
 
-class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
+final class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneName___ControllerLogic {
     // MARK: - Properties
 
     var router: Router<___VARIABLE_sceneName___ControllerRoutes>?
-    var interactor: ___VARIABLE_sceneName___Interactor?
+    private var interactor: ___VARIABLE_sceneName___Interactor?
 
     lazy var customView = ___VARIABLE_sceneName___View()
     lazy var notificationFeedbackGenerator = UINotificationFeedbackGenerator()
@@ -41,21 +41,17 @@ class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneNam
         extendedLayoutIncludesOpaqueBars = true
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     // MARK: - Network requests
 
-    @objc
+    @objc 
     private func load___VARIABLE_entityName___s() {
-        interactor?.loadList(page: 1)
+        interactor?.loadList(page: 0)
     }
 
     // MARK: - Action handlers
 
     private func addActionHandlers() {
-        customView.refreshControl?.addTarget(
+        customView.tableView.refreshControl?.addTarget(
             self,
             action: #selector(load___VARIABLE_entityName___s),
             for: .valueChanged
@@ -65,12 +61,14 @@ class ___VARIABLE_sceneName___Controller: UIViewController, ___VARIABLE_sceneNam
 
     // MARK: - ___VARIABLE_sceneName___ControllerLogic
 
-    func displayList(response: ___VARIABLE_entityName___ListResponse) {
+    func displayList(
+        loadedPage: Int, nextPage: Int?, response: [___VARIABLE_entityName___]
+    ) {
         customView.endRefreshing()
-        if response.lastPageNumber != nil {
-            customView.append___VARIABLE_entityName___s(response.list, nextPageNumber: response.nextPageNumber)
+        if loadedPage != 0 {
+            customView.append___VARIABLE_entityName___s(response, nextPageNumber: nextPage)
         } else {
-            customView.update___VARIABLE_entityName___s(response.list, nextPageNumber: response.nextPageNumber)
+            customView.update___VARIABLE_entityName___s(response, nextPageNumber: nextPage)
         }
     }
 

@@ -2,32 +2,52 @@
 
 import MDFoundation
 
-final class ___VARIABLE_sceneName___View: UITableView {
+final class ___VARIABLE_sceneName___View: UIView {
     // MARK: - Properties
+
+    private(set) var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = Assets.background1.color
+        tableView.refreshControl = UIRefreshControl()
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorInset = .zero
+        tableView.estimatedRowHeight = 125
+        tableView.contentInset.bottom = 100
+        tableView.contentInsetAdjustmentBehavior = .always
+        return tableView
+    }()
 
     private var customDataSource: ___VARIABLE_entityName___sDataSource = ___VARIABLE_entityName___sDataSource()
 
     // MARK: - Init
 
-    override init(frame: CGRect = UIScreen.main.bounds, style: UITableView.Style = .plain) {
-        super.init(frame: frame, style: style)
+    init() {
+        super.init(frame: UIScreen.main.bounds)
         setupStyle()
+        addSubviews()
+        makeConstraints()
     }
 
+    @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setupStyle() {
-        customDataSource.setTableView(self)
         backgroundColor = Assets.background1.color
-        refreshControl = UIRefreshControl()
-        tableFooterView = UIView()
-        rowHeight = UITableView.automaticDimension
-        separatorInset = .zero
-        estimatedRowHeight = 125
-        contentInset.bottom = 100
-        contentInsetAdjustmentBehavior = .always
+        customDataSource.setTableView(tableView)
+    }
+
+    private func addSubviews() {
+        addSubview(tableView)
+    }
+
+    private func makeConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide)
+        }
     }
 
     // MARK: - Internal methods
@@ -37,7 +57,7 @@ final class ___VARIABLE_sceneName___View: UITableView {
     }
 
     func endRefreshing() {
-        refreshControl?.endRefreshing()
+        tableView.refreshControl?.endRefreshing()
     }
 
     func showError(message: String) {
